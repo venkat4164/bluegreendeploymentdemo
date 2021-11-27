@@ -9,7 +9,7 @@ phases:
   post_build:
     commands:
     - echo "Entered post build phase"
-    - mv package
+    - mvn package
     - mv target/bluegreendeploymentdemo-v1.war bluegreendeploymentdemo-v1.war
 artifacts:
   files:
