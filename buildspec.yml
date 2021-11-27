@@ -1,16 +1,19 @@
 version: 0.2
 phases:
+  install:
+    runtime-versions:
+      java: openjdk8
   pre_build:
     commands:
     - echo "Entered the pre-build phase"
   build:
     commands:
     - echo "Entered build phase"
-    - mvn package
+    - mvn clean prepare-package war:exploded
   post_build:
     commands:
     - echo "Entered post build phase"
-    - mv target/bluegreendeploymentdemo-v1.war bluegreendeploymentdemo-v2.war
+    - mv target/deploy ./
 artifacts:
   files:
-    - bluegreendeploymentdemo-v2.war
+    - deploy/**/*
